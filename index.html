@@ -25,6 +25,7 @@
             background-color: #f5f5f5;
             color: var(--dark);
             line-height: 1.6;
+            padding-bottom: 40px;
         }
         
         .container {
@@ -43,9 +44,8 @@
         }
         
         /* Thank You Section */
-        #thankYou {
-            display: none;
-            background: linear-gradient(135deg, #f5d6e6 0%, #e2b3d1 50%, #c3cfe2 100%);
+        .thank-you-container {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
             padding: 30px 0;
             margin: 20px auto;
             max-width: 800px;
@@ -54,7 +54,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        #thankYou img {
+        .thank-you-container img {
             max-width: 90%;
             margin: 0 auto;
             display: block;
@@ -199,12 +199,21 @@
             height: 20px;
         }
         
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
             .image-section {
                 border-radius: 0;
             }
             
-            #thankYou {
+            .thank-you-container {
                 border-radius: 0;
                 padding: 20px 0;
             }
@@ -250,9 +259,9 @@
         <img src="mention-selfies.jpeg" alt="Social Media" class="image-section">
         <div class="section-spacer"></div>
         
-        <!-- Thank You Section -->
-        <div id="thankYou">
-            <img src="thank-you.jpeg" alt="Thank You" class="image-section">
+        <!-- Thank You Section - Now visible by default -->
+        <div class="thank-you-container">
+            <img src="thank-you.jpeg" alt="Thank You">
         </div>
         <div class="section-spacer"></div>
         
@@ -333,6 +342,11 @@
                 <!-- Other quick weave service items -->
             </div>
         </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Powered by LaunchOne 2023
+        </div>
     </div>
 
     <script>
@@ -354,43 +368,34 @@
         
         // Book service function
         function bookService(serviceName) {
-            // Show thank you image
-            document.getElementById('thankYou').style.display = 'block';
-            window.scrollTo(0, 0);
+            // Show Calendly widget
+            document.querySelector('.calendly-inline-widget').style.display = 'block';
             
-            // Show Calendly widget after 2 seconds
-            setTimeout(() => {
-                document.getElementById('thankYou').style.display = 'none';
-                document.querySelector('.calendly-inline-widget').style.display = 'block';
-                
-                // Initialize Calendly widget
-                Calendly.initInlineWidget({
-                    url: 'https://calendly.com/kayleb-sr/30min',
-                    parentElement: document.querySelector('.calendly-inline-widget'),
-                    prefill: {
-                        name: '',
-                        email: '',
-                        customAnswers: {
-                            a1: serviceName
-                        }
+            // Initialize Calendly widget
+            Calendly.initInlineWidget({
+                url: 'https://calendly.com/kayleb-sr/30min',
+                parentElement: document.querySelector('.calendly-inline-widget'),
+                prefill: {
+                    name: '',
+                    email: '',
+                    customAnswers: {
+                        a1: serviceName
                     }
-                });
-                
-                // Scroll to Calendly widget
-                document.querySelector('.calendly-inline-widget').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }, 2000);
+                }
+            });
+            
+            // Scroll to Calendly widget
+            document.querySelector('.calendly-inline-widget').scrollIntoView({
+                behavior: 'smooth'
+            });
             
             // Store the selected service
             localStorage.setItem('selectedService', serviceName);
         }
         
-        // Initialize - open first section by default
+        // Initialize - no sections open by default now
         document.addEventListener('DOMContentLoaded', function() {
-            toggleSection('acrylic');
-            // Hide thank you section initially
-            document.getElementById('thankYou').style.display = 'none';
+            // No sections automatically opened now
         });
     </script>
 </body>
