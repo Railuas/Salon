@@ -33,62 +33,78 @@
             padding: 20px;
         }
         
-        /* Header Styles */
-        .welcome-header {
-            text-align: center;
-            padding: 60px 0;
-            color: white;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            background-image: url('welcome.jpeg');
+        /* Full Width Image Sections */
+        .full-width-image {
+            width: 100%;
+            height: 100vh;
             background-size: cover;
             background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
         }
         
-        .welcome-overlay {
+        .image-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(142, 68, 173, 0.8);
+            background: rgba(0,0,0,0.4);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         
-        .welcome-header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .welcome-header p {
-            font-size: 1.5rem;
+        .full-width-image h1 {
+            font-size: 4rem;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .full-width-image p {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Welcome Section */
+        #welcome {
+            background-image: url('welcome.jpeg');
         }
         
         .salon-name {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            letter-spacing: 2px;
             margin: 20px 0;
             position: relative;
             z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
-        .location {
-            font-style: italic;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
+        /* Thank You Section */
+        #thankYou {
+            background-image: url('thank-you.jpeg');
+            display: none;
+        }
+        
+        /* Policy Section */
+        #policies {
+            background-image: url('booking-policies.jpeg');
+        }
+        
+        /* Social Media Section */
+        #social {
+            background-image: url('mention-selfies.jpeg');
         }
         
         /* Service Section Styles */
@@ -96,8 +112,9 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            margin: 30px auto;
             overflow: hidden;
+            max-width: 1200px;
         }
         
         .service-header {
@@ -192,87 +209,26 @@
             display: none;
         }
         
-        /* Policy Section with Image Background */
-        .policy-section {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url('booking-policies.jpeg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .policy-section h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .policy-item {
-            margin-bottom: 20px;
-        }
-        
-        .policy-item h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        /* Social Media Section with Image Background */
-        .social-section {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url('mention-selfies.jpeg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .social-section h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .social-handle {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-top: 15px;
-        }
-        
-        /* Thank You Section with Image Background */
-        .thank-you-section {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url('thank-you.jpeg');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            padding: 60px 0;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            display: none;
-        }
-        
-        .thank-you-section h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
         /* Calendly Integration */
         .calendly-inline-widget {
             min-height: 700px;
+            width: 100%;
             border-radius: 10px;
             overflow: hidden;
-            margin: 30px 0;
+            margin: 30px auto;
             display: none;
+            max-width: 1200px;
         }
         
         @media (max-width: 768px) {
+            .full-width-image h1 {
+                font-size: 2.5rem;
+            }
+            
+            .salon-name {
+                font-size: 2rem;
+            }
+            
             .service-item {
                 flex-direction: column;
                 align-items: flex-start;
@@ -282,10 +238,6 @@
                 margin: 10px 0;
                 align-self: flex-end;
             }
-            
-            .welcome-header h1 {
-                font-size: 2rem;
-            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -293,56 +245,66 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Welcome Header with Image Background -->
-        <div class="welcome-header">
-            <div class="welcome-overlay">
-                <h1>Hello Glorious</h1>
-                <p>WELCOME TO OUR WEBSITE</p>
-                <div class="salon-name">Mais Lors & Maleur</div>
-                <div>BY YENIFER</div>
-                <div class="location">LOCATED IN ATLANTA, GEORGIA</div>
-            </div>
+    <!-- Welcome Section -->
+    <section class="full-width-image" id="welcome">
+        <div class="image-overlay">
+            <h1>Hello Glorious</h1>
+            <p>WELCOME TO OUR WEBSITE</p>
+            <div class="salon-name">Mais Lors & Maleur</div>
+            <div>BY YENIFER</div>
+            <div>LOCATED IN ATLANTA, GEORGIA</div>
         </div>
-        
-        <!-- Thank You Section (hidden by default) -->
-        <div class="thank-you-section" id="thankYou">
-            <h2>Thank You</h2>
+    </section>
+    
+    <!-- Thank You Section -->
+    <section class="full-width-image" id="thankYou">
+        <div class="image-overlay">
+            <h1>Thank You</h1>
             <p>FOR CHOOSING US</p>
-            <p>Your appointment is being booked...</p>
-            <div id="selectedServiceDisplay" style="margin: 20px 0; font-weight: bold;"></div>
+            <p id="selectedServiceDisplay" style="font-weight: bold; font-size: 1.2rem;"></p>
         </div>
-        
-        <!-- Calendly Embed -->
-        <div class="calendly-inline-widget" 
-             data-url="https://calendly.com/kayleb-sr/30min" 
-             id="calendlyWidget"></div>
-        
-        <!-- Policy Section -->
-        <div class="policy-section">
-            <h2>Booking Policies</h2>
-            <div class="policy-item">
-                <h3>CANCELLATION & RESCHEDULING</h3>
-                <p>A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
-            </div>
-            <div class="policy-item">
-                <h3>DEPOSITS</h3>
-                <p>I ACCEPT CASH and CASHAPP. ALL OTHER FORMS OF PAYMENT WILL NOT BE ACCEPTED.</p>
-            </div>
-            <div class="policy-item">
-                <h3>LATE POLICY</h3>
-                <p>PLEASE ARRIVE ON TIME! A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT CAN BE CANCELLED AND YOUR DEPOSIT WILL NOT BE REFUNDED.</p>
+    </section>
+    
+    <!-- Calendly Embed -->
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/kayleb-sr/30min" 
+         id="calendlyWidget"></div>
+    
+    <!-- Policy Section -->
+    <section class="full-width-image" id="policies">
+        <div class="image-overlay">
+            <h1>Booking Policies</h1>
+            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: var(--secondary); margin-bottom: 10px;">CANCELLATION & RESCHEDULING</h2>
+                    <p style="font-size: 1.2rem;">A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: var(--secondary); margin-bottom: 10px;">DEPOSITS</h2>
+                    <p style="font-size: 1.2rem;">I ACCEPT CASH and CASHAPP. ALL OTHER FORMS OF PAYMENT WILL NOT BE ACCEPTED.</p>
+                </div>
+                <div>
+                    <h2 style="color: var(--secondary); margin-bottom: 10px;">LATE POLICY</h2>
+                    <p style="font-size: 1.2rem;">PLEASE ARRIVE ON TIME! A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT CAN BE CANCELLED AND YOUR DEPOSIT WILL NOT BE REFUNDED.</p>
+                </div>
             </div>
         </div>
-        
-        <!-- Social Media Section -->
-        <div class="social-section">
-            <h2>Share Us In Your Selfies</h2>
-            <p>I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
-            <p>(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
-            <div class="social-handle">@1YENIFER6</div>
+    </section>
+    
+    <!-- Social Media Section -->
+    <section class="full-width-image" id="social">
+        <div class="image-overlay">
+            <h1>Share Us In Your Selfies</h1>
+            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
+                <div style="font-size: 1.5rem; font-weight: bold; color: var(--secondary);">@1YENIFER6</div>
+            </div>
         </div>
-        
+    </section>
+    
+    <!-- Service Sections Container -->
+    <div class="container">
         <!-- Acrylic Section -->
         <div class="service-section">
             <div class="service-header" onclick="toggleSection('acrylic')">
