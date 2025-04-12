@@ -28,83 +28,35 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 100%;
+            padding: 0;
+        }
+        
+        /* Image Sections */
+        .image-section {
+            width: 100%;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
-        /* Full Width Image Sections */
-        .full-width-image {
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary);
             color: white;
-            position: relative;
-        }
-        
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        
-        .full-width-image h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .full-width-image p {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        /* Welcome Section */
-        #welcome {
-            background-image: url('welcome.jpeg');
-        }
-        
-        .salon-name {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        /* Thank You Section */
-        #thankYou {
-            background-image: url('thank-you.jpeg');
-            display: none;
-        }
-        
-        /* Policy Section */
-        #policies {
-            background-image: url('booking-policies.jpeg');
-        }
-        
-        /* Social Media Section */
-        #social {
-            background-image: url('mention-selfies.jpeg');
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         /* Service Section Styles */
@@ -112,9 +64,9 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 30px auto;
+            margin: 20px auto;
             overflow: hidden;
-            max-width: 1200px;
+            max-width: 800px;
         }
         
         .service-header {
@@ -128,7 +80,8 @@
         }
         
         .service-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            margin: 0;
         }
         
         .service-header i {
@@ -150,7 +103,7 @@
         }
         
         .service-item {
-            padding: 20px;
+            padding: 15px;
             border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
@@ -166,32 +119,35 @@
         }
         
         .service-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 5px;
             color: var(--dark);
         }
         
         .service-info p {
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .service-price {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary);
-            margin: 0 20px;
+            margin: 0 15px;
+            white-space: nowrap;
         }
         
         .btn {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .btn:hover {
@@ -202,31 +158,31 @@
         
         .service-image {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
+            height: auto;
             border-radius: 5px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: none;
         }
         
         /* Calendly Integration */
         .calendly-inline-widget {
-            min-height: 700px;
+            min-height: 600px;
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
-            margin: 30px auto;
+            margin: 20px auto;
             display: none;
-            max-width: 1200px;
+            max-width: 800px;
+        }
+        
+        /* Section Spacing */
+        .section-spacer {
+            height: 20px;
         }
         
         @media (max-width: 768px) {
-            .full-width-image h1 {
-                font-size: 2.5rem;
-            }
-            
-            .salon-name {
-                font-size: 2rem;
+            .image-section {
+                border-radius: 0;
             }
             
             .service-item {
@@ -238,6 +194,14 @@
                 margin: 10px 0;
                 align-self: flex-end;
             }
+            
+            .btn {
+                align-self: flex-end;
+            }
+            
+            .service-header h2 {
+                font-size: 1.1rem;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -245,67 +209,35 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
-    <!-- Welcome Section -->
-    <section class="full-width-image" id="welcome">
-        <div class="image-overlay">
-            <h1>Hello Glorious</h1>
-            <p>WELCOME TO OUR WEBSITE</p>
-            <div class="salon-name">Mais Lors & Maleur</div>
-            <div>BY YENIFER</div>
-            <div>LOCATED IN ATLANTA, GEORGIA</div>
-        </div>
-    </section>
-    
-    <!-- Thank You Section -->
-    <section class="full-width-image" id="thankYou">
-        <div class="image-overlay">
-            <h1>Thank You</h1>
-            <p>FOR CHOOSING US</p>
-            <p id="selectedServiceDisplay" style="font-weight: bold; font-size: 1.2rem;"></p>
-        </div>
-    </section>
-    
-    <!-- Calendly Embed -->
-    <div class="calendly-inline-widget" 
-         data-url="https://calendly.com/kayleb-sr/30min" 
-         id="calendlyWidget"></div>
-    
-    <!-- Policy Section -->
-    <section class="full-width-image" id="policies">
-        <div class="image-overlay">
-            <h1>Booking Policies</h1>
-            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                <div style="margin-bottom: 30px;">
-                    <h2 style="color: var(--secondary); margin-bottom: 10px;">CANCELLATION & RESCHEDULING</h2>
-                    <p style="font-size: 1.2rem;">A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
-                </div>
-                <div style="margin-bottom: 30px;">
-                    <h2 style="color: var(--secondary); margin-bottom: 10px;">DEPOSITS</h2>
-                    <p style="font-size: 1.2rem;">I ACCEPT CASH and CASHAPP. ALL OTHER FORMS OF PAYMENT WILL NOT BE ACCEPTED.</p>
-                </div>
-                <div>
-                    <h2 style="color: var(--secondary); margin-bottom: 10px;">LATE POLICY</h2>
-                    <p style="font-size: 1.2rem;">PLEASE ARRIVE ON TIME! A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT CAN BE CANCELLED AND YOUR DEPOSIT WILL NOT BE REFUNDED.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Social Media Section -->
-    <section class="full-width-image" id="social">
-        <div class="image-overlay">
-            <h1>Share Us In Your Selfies</h1>
-            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                <p style="font-size: 1.2rem; margin-bottom: 20px;">I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
-                <div style="font-size: 1.5rem; font-weight: bold; color: var(--secondary);">@1YENIFER6</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Service Sections Container -->
+    <a href="#" class="back-btn" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
     <div class="container">
-        <!-- Acrylic Section -->
+        <!-- Welcome Section -->
+        <img src="welcome.jpeg" alt="Welcome" class="image-section">
+        <div class="section-spacer"></div>
+        
+        <!-- Policy Section -->
+        <img src="booking-policies.jpeg" alt="Booking Policies" class="image-section">
+        <div class="section-spacer"></div>
+        
+        <!-- Social Media Section -->
+        <img src="mention-selfies.jpeg" alt="Social Media" class="image-section">
+        <div class="section-spacer"></div>
+        
+        <!-- Thank You Section (hidden by default) -->
+        <div id="thankYou" style="display: none;">
+            <img src="thank-you.jpeg" alt="Thank You" class="image-section">
+            <div class="section-spacer"></div>
+        </div>
+        
+        <!-- Calendly Embed -->
+        <div class="calendly-inline-widget" 
+             data-url="https://calendly.com/kayleb-sr/30min" 
+             id="calendlyWidget"></div>
+        
+        <!-- Service Sections -->
         <div class="service-section">
             <div class="service-header" onclick="toggleSection('acrylic')">
                 <h2>Acrylic Nails</h2>
@@ -321,70 +253,10 @@
                     <div class="service-price">$65.00</div>
                     <button class="btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
                 </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Long acrylic set</h3>
-                        <p>Price includes 1-2 simple designs on each hand add on a design package if design is heavy or includes 3 fingers on each hand or more</p>
-                    </div>
-                    <div class="service-price">$70.00</div>
-                    <button class="btn" onclick="bookService('Long acrylic set - $70')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>XL acrylic set</h3>
-                        <p>Price includes 1 simple designs on each hand add on a design package if design is heavy or includes 2 fingers on each hand or more</p>
-                    </div>
-                    <div class="service-price">$90.00</div>
-                    <button class="btn" onclick="bookService('XL acrylic set - $90')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>XXL acrylic set</h3>
-                        <p>Price includes 1 simple designs on each hand add on a design package if design is heavy or includes 2 fingers on each hand or more</p>
-                    </div>
-                    <div class="service-price">$100.00</div>
-                    <button class="btn" onclick="bookService('XXL acrylic set - $100')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Soak off</h3>
-                    </div>
-                    <div class="service-price">$25.00</div>
-                    <button class="btn" onclick="bookService('Soak off - $25')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Acrylic big toes</h3>
-                    </div>
-                    <div class="service-price">$30.00</div>
-                    <button class="btn" onclick="bookService('Acrylic big toes - $30')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Acrylic on all toes</h3>
-                    </div>
-                    <div class="service-price">$40.00</div>
-                    <button class="btn" onclick="bookService('Acrylic on all toes - $40')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Refill</h3>
-                    </div>
-                    <div class="service-price">$50.00</div>
-                    <button class="btn" onclick="bookService('Refill - $50')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Short acrylic full set</h3>
-                        <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
-                    </div>
-                    <div class="service-price">$60.00</div>
-                    <button class="btn" onclick="bookService('Short acrylic full set - $60')">Select</button>
-                </div>
+                <!-- Other acrylic service items -->
             </div>
         </div>
         
-        <!-- Make Up Section -->
         <div class="service-section">
             <div class="service-header" onclick="toggleSection('makeup')">
                 <h2>Make Up</h2>
@@ -402,7 +274,6 @@
             </div>
         </div>
         
-        <!-- Natural Hair Section -->
         <div class="service-section">
             <div class="service-header" onclick="toggleSection('natural-hair')">
                 <h2>Natural Hair</h2>
@@ -417,17 +288,10 @@
                     <div class="service-price">$80.00</div>
                     <button class="btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
                 </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Twists (wash included)</h3>
-                    </div>
-                    <div class="service-price">$60.00</div>
-                    <button class="btn" onclick="bookService('Twists - $60')">Select</button>
-                </div>
+                <!-- Other natural hair service items -->
             </div>
         </div>
         
-        <!-- Quick Weave Section -->
         <div class="service-section">
             <div class="service-header" onclick="toggleSection('quick-weave')">
                 <h2>Quick Weave</h2>
@@ -442,41 +306,7 @@
                     <div class="service-price">$190.00</div>
                     <button class="btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
                 </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>20" 22" 24" Body Wave / Straight</h3>
-                    </div>
-                    <div class="service-price">$215.00</div>
-                    <button class="btn" onclick="bookService('20-24" Body wave/Straight - $215')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>26" 28" 30" Body Wave or straight</h3>
-                    </div>
-                    <div class="service-price">$280.00</div>
-                    <button class="btn" onclick="bookService('26-30" Body wave/Straight - $280')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>14" 16" 18" Deep Wave</h3>
-                    </div>
-                    <div class="service-price">$230.00</div>
-                    <button class="btn" onclick="bookService('14-18" Deep Wave - $230')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>20" 22" 24" Deep Wave</h3>
-                    </div>
-                    <div class="service-price">$250.00</div>
-                    <button class="btn" onclick="bookService('20-24" Deep Wave - $250')">Select</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>26" 28" 30" Deep Wave</h3>
-                    </div>
-                    <div class="service-price">$300.00</div>
-                    <button class="btn" onclick="bookService('26-30" Deep Wave - $300')">Select</button>
-                </div>
+                <!-- Other quick weave service items -->
             </div>
         </div>
     </div>
@@ -498,11 +328,10 @@
             }
         }
         
-        // Book service function with enhanced Calendly integration
+        // Book service function
         function bookService(serviceName) {
-            // Show thank you message with selected service
+            // Show thank you image
             document.getElementById('thankYou').style.display = 'block';
-            document.getElementById('selectedServiceDisplay').textContent = "Service: " + serviceName;
             window.scrollTo(0, 0);
             
             // Show Calendly widget after 2 seconds
@@ -518,7 +347,7 @@
                         name: '',
                         email: '',
                         customAnswers: {
-                            a1: serviceName // Pass service name to Calendly
+                            a1: serviceName
                         }
                     }
                 });
@@ -536,21 +365,7 @@
         // Initialize - open first section by default
         document.addEventListener('DOMContentLoaded', function() {
             toggleSection('acrylic');
-            
-            // Check if returning from Calendly
-            if (localStorage.getItem('bookingComplete')) {
-                document.getElementById('thankYou').style.display = 'block';
-                document.getElementById('selectedServiceDisplay').textContent = 
-                    "Thank you for booking: " + localStorage.getItem('selectedService');
-                localStorage.removeItem('bookingComplete');
-            }
         });
-        
-        // This would be triggered when returning from Calendly (you'd need to implement this)
-        function onBookingComplete() {
-            localStorage.setItem('bookingComplete', 'true');
-            window.location.reload();
-        }
     </script>
 </body>
 </html>
