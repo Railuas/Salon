@@ -12,6 +12,8 @@
             --dark: #2c3e50;
             --light: #ecf0f1;
             --accent: #f39c12;
+            --pink-light: #fce4ec;
+            --pink-medium: #f8bbd0;
         }
         
         * {
@@ -25,7 +27,52 @@
             background-color: #f5f5f5;
             color: var(--dark);
             line-height: 1.6;
-            padding-bottom: 40px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
         }
         
         .container {
@@ -33,22 +80,30 @@
             padding: 0;
         }
         
-        /* Image Container Styles */
-        .image-container {
-            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
-            padding: 30px 0;
-            margin: 20px auto;
+        /* Image Stack Styles */
+        .image-stack {
             max-width: 800px;
+            margin: 20px auto;
             border-radius: 10px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-container {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-medium) 100%);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .image-container:not(:last-child) {
+            border-bottom: 2px solid rgba(255,255,255,0.5);
         }
         
         .image-container img {
             max-width: 90%;
             margin: 0 auto;
             display: block;
-            border-radius: 8px;
+            border-radius: 5px;
         }
         
         /* Back Button */
@@ -184,42 +239,107 @@
             max-width: 800px;
         }
         
-        /* Section Spacing */
-        .section-spacer {
-            height: 20px;
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
         
-        /* Footer */
-        .footer {
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-about p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .newsletter h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
             text-align: center;
-            margin-top: 30px;
-            padding: 15px;
-            color: #777;
-            font-size: 0.9rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         @media (max-width: 768px) {
-            .image-container {
-                border-radius: 0;
-                padding: 20px 0;
-            }
-            
-            .service-item {
+            .nav-container {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
             }
             
-            .service-price {
-                margin: 10px 0;
-                align-self: flex-end;
+            nav ul {
+                margin-top: 1rem;
             }
             
-            .btn {
-                align-self: flex-end;
+            nav ul li {
+                margin: 0 0.5rem;
             }
             
-            .service-header h2 {
-                font-size: 1.1rem;
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -228,115 +348,142 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Mais Lors & Maleur</div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <a href="#" class="back-btn" onclick="history.back()">
         <i class="fas fa-arrow-left"></i>
     </a>
 
     <div class="container">
-        <!-- Welcome Section -->
-        <div class="image-container">
-            <img src="welcome.jpeg" alt="Welcome">
-        </div>
-        <div class="section-spacer"></div>
-        
-        <!-- Policy Section -->
-        <div class="image-container">
-            <img src="booking-policies.jpeg" alt="Booking Policies">
-        </div>
-        <div class="section-spacer"></div>
-        
-        <!-- Social Media Section -->
-        <div class="image-container">
-            <img src="mention-selfies.jpeg" alt="Social Media">
-        </div>
-        <div class="section-spacer"></div>
-        
-        <!-- Thank You Section -->
-        <div class="image-container">
-            <img src="thank-you.jpeg" alt="Thank You">
-        </div>
-        <div class="section-spacer"></div>
-        
-        <!-- Calendly Embed -->
-        <div class="calendly-inline-widget" 
-             data-url="https://calendly.com/kayleb-sr/30min" 
-             id="calendlyWidget"></div>
-        
-        <!-- Service Sections -->
-        <div class="service-section">
-            <div class="service-header" onclick="toggleSection('acrylic')">
-                <h2>Acrylic Nails</h2>
-                <i class="fas fa-chevron-down"></i>
+        <!-- Image Stack -->
+        <div class="image-stack">
+            <div class="image-container">
+                <img src="welcome.jpeg" alt="Welcome">
             </div>
-            <div class="service-content" id="acrylic">
-                <img src="acrylic-section.jpg" alt="Acrylic Nails" class="service-image" id="acrylic-image">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Medium acrylic set</h3>
-                        <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
+            <div class="image-container">
+                <img src="booking-policies.jpeg" alt="Booking Policies">
+            </div>
+            <div class="image-container">
+                <img src="mention-selfies.jpeg" alt="Social Media">
+            </div>
+            <div class="image-container">
+                <img src="thank-you.jpeg" alt="Thank You">
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div id="services">
+            <div class="service-section">
+                <div class="service-header" onclick="toggleSection('acrylic')">
+                    <h2>Acrylic Nails</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="service-content" id="acrylic">
+                    <img src="acrylic-section.jpg" alt="Acrylic Nails" class="service-image" id="acrylic-image">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Medium acrylic set</h3>
+                            <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
+                        </div>
+                        <div class="service-price">$65.00</div>
+                        <button class="btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
                     </div>
-                    <div class="service-price">$65.00</div>
-                    <button class="btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
                 </div>
             </div>
-        </div>
-        
-        <div class="service-section">
-            <div class="service-header" onclick="toggleSection('makeup')">
-                <h2>Make Up</h2>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="service-content" id="makeup">
-                <img src="makeup-section.jpg" alt="Make Up Services" class="service-image" id="makeup-image">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Soft glam with Yenifer Torres</h3>
+            
+            <div class="service-section">
+                <div class="service-header" onclick="toggleSection('makeup')">
+                    <h2>Make Up</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="service-content" id="makeup">
+                    <img src="makeup-section.jpg" alt="Make Up Services" class="service-image" id="makeup-image">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Soft glam with Yenifer Torres</h3>
+                        </div>
+                        <div class="service-price">$90.00</div>
+                        <button class="btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Select</button>
                     </div>
-                    <div class="service-price">$90.00</div>
-                    <button class="btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Select</button>
                 </div>
             </div>
-        </div>
-        
-        <div class="service-section">
-            <div class="service-header" onclick="toggleSection('natural-hair')">
-                <h2>Natural Hair</h2>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="service-content" id="natural-hair">
-                <img src="natural-hair-section.jpg" alt="Natural Hair Services" class="service-image" id="natural-hair-image">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>Locs Retwist & style (wash included)</h3>
+            
+            <div class="service-section">
+                <div class="service-header" onclick="toggleSection('natural-hair')">
+                    <h2>Natural Hair</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="service-content" id="natural-hair">
+                    <img src="natural-hair-section.jpg" alt="Natural Hair Services" class="service-image" id="natural-hair-image">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Locs Retwist & style (wash included)</h3>
+                        </div>
+                        <div class="service-price">$80.00</div>
+                        <button class="btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
                     </div>
-                    <div class="service-price">$80.00</div>
-                    <button class="btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
                 </div>
             </div>
-        </div>
-        
-        <div class="service-section">
-            <div class="service-header" onclick="toggleSection('quick-weave')">
-                <h2>Quick Weave</h2>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="service-content" id="quick-weave">
-                <img src="quick-weave-section.jpg" alt="Quick Weave Services" class="service-image" id="quick-weave-image">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h3>14" 16" 18" Body wave / Straight</h3>
+            
+            <div class="service-section">
+                <div class="service-header" onclick="toggleSection('quick-weave')">
+                    <h2>Quick Weave</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="service-content" id="quick-weave">
+                    <img src="quick-weave-section.jpg" alt="Quick Weave Services" class="service-image" id="quick-weave-image">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>14" 16" 18" Body wave / Straight</h3>
+                        </div>
+                        <div class="service-price">$190.00</div>
+                        <button class="btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
                     </div>
-                    <div class="service-price">$190.00</div>
-                    <button class="btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            Powered by LaunchOne 2023
-        </div>
+        <!-- Calendly Embed -->
+        <div class="calendly-inline-widget" id="booking"
+             data-url="https://calendly.com/kayleb-sr/30min"></div>
     </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Mais Lors & Maleur</div>
+                <p>Professional beauty services by Yenifer Torres. Book your appointment today and experience luxury beauty treatments.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h3>Join Our Newsletter</h3>
+                <p>Subscribe to receive updates, special offers, and beauty tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Mais Lors & Maleur. Powered by LaunchOne. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Toggle service sections
@@ -355,7 +502,7 @@
             }
         }
         
-        // Book service function
+        // Book service function - PRESERVED FROM YOUR ORIGINAL CODE
         function bookService(serviceName) {
             // Show Calendly widget
             document.querySelector('.calendly-inline-widget').style.display = 'block';
@@ -381,6 +528,21 @@
             // Store the selected service
             localStorage.setItem('selectedService', serviceName);
         }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Initialize - no sections open by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your original booking functionality is preserved
+        });
     </script>
 </body>
 </html>
