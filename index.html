@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais Lors & Maleur by Yenifer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #e84393;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        .welcome-header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .welcome-header p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .salon-name {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 20px 0;
+        }
+        
+        .location {
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        /* Service Section Styles */
+        .service-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .service-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .service-header i {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-header.active i {
+            transform: rotate(180deg);
+        }
+        
+        .service-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .service-content.active {
+            max-height: 2000px;
+        }
+        
+        .service-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-info {
+            flex: 1;
+        }
+        
+        .service-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .service-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0 20px;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        /* Policy Section */
+        .policy-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .policy-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .policy-item {
+            margin-bottom: 20px;
+        }
+        
+        .policy-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .social-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .social-handle {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-top: 15px;
+        }
+        
+        /* Thank You Section */
+        .thank-you-section {
+            text-align: center;
+            padding: 60px 0;
+            display: none;
+        }
+        
+        .thank-you-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .service-price {
+                margin: 10px 0;
+                align-self: flex-end;
+            }
+            
+            .welcome-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Header -->
+        <div class="welcome-header">
+            <h1>Hello Glorious</h1>
+            <p>WELCOME TO OUR WEBSITE</p>
+            <div class="salon-name">Mais Lors & Maleur</div>
+            <div>BY YENIFER</div>
+            <div class="location">LOCATED IN ATLANTA, GEORGIA</div>
+        </div>
+        
+        <!-- Thank You Section (hidden by default) -->
+        <div class="thank-you-section" id="thankYou">
+            <h2>Thank You</h2>
+            <p>FOR CHOOSING US</p>
+            <p>Please select the services from the list below!</p>
+        </div>
+        
+        <!-- Policy Section -->
+        <div class="policy-section">
+            <h2>Booking Policies</h2>
+            <div class="policy-item">
+                <h3>CANCELLATION & RESCHEDULING</h3>
+                <p>A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
+            </div>
+            <div class="policy-item">
+                <h3>DEPOSITS</h3>
+                <p>I ACCEPT CASH and CASHAPP. ALL OTHER FORMS OF PAYMENT WILL NOT BE ACCEPTED.</p>
+            </div>
+            <div class="policy-item">
+                <h3>LATE POLICY</h3>
+                <p>PLEASE ARRIVE ON TIME! A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT CAN BE CANCELLED AND YOUR DEPOSIT WILL NOT BE REFUNDED.</p>
+            </div>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-section">
+            <h2>Share Us In Your Selfies</h2>
+            <p>I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
+            <p>(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
+            <div class="social-handle">@1YENIFER6</div>
+        </div>
+        
+        <!-- Acrylic Section -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleSection('acrylic')">
+                <h2>Acrylic Nails</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="service-content" id="acrylic">
+                <img src="acrylic-section.jpg" alt="Acrylic Nails" class="service-image" id="acrylic-image">
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Medium acrylic set</h3>
+                        <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
+                    </div>
+                    <div class="service-price">$65.00</div>
+                    <button class="btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Long acrylic set</h3>
+                        <p>Price includes 1-2 simple designs on each hand add on a design package if design is heavy or includes 3 fingers on each hand or more</p>
+                    </div>
+                    <div class="service-price">$70.00</div>
+                    <button class="btn" onclick="bookService('Long acrylic set - $70')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>XL acrylic set</h3>
+                        <p>Price includes 1 simple designs on each hand add on a design package if design is heavy or includes 2 fingers on each hand or more</p>
+                    </div>
+                    <div class="service-price">$90.00</div>
+                    <button class="btn" onclick="bookService('XL acrylic set - $90')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>XXL acrylic set</h3>
+                        <p>Price includes 1 simple designs on each hand add on a design package if design is heavy or includes 2 fingers on each hand or more</p>
+                    </div>
+                    <div class="service-price">$100.00</div>
+                    <button class="btn" onclick="bookService('XXL acrylic set - $100')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Soak off</h3>
+                    </div>
+                    <div class="service-price">$25.00</div>
+                    <button class="btn" onclick="bookService('Soak off - $25')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Acrylic big toes</h3>
+                    </div>
+                    <div class="service-price">$30.00</div>
+                    <button class="btn" onclick="bookService('Acrylic big toes - $30')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Acrylic on all toes</h3>
+                    </div>
+                    <div class="service-price">$40.00</div>
+                    <button class="btn" onclick="bookService('Acrylic on all toes - $40')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Refill</h3>
+                    </div>
+                    <div class="service-price">$50.00</div>
+                    <button class="btn" onclick="bookService('Refill - $50')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Short acrylic full set</h3>
+                        <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
+                    </div>
+                    <div class="service-price">$60.00</div>
+                    <button class="btn" onclick="bookService('Short acrylic full set - $60')">Select</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Make Up Section -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleSection('makeup')">
+                <h2>Make Up</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="service-content" id="makeup">
+                <img src="makeup-section.jpg" alt="Make Up Services" class="service-image" id="makeup-image">
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Soft glam with Yenifer Torres</h3>
+                    </div>
+                    <div class="service-price">$90.00</div>
+                    <button class="btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Select</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Natural Hair Section -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleSection('natural-hair')">
+                <h2>Natural Hair</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="service-content" id="natural-hair">
+                <img src="natural-hair-section.jpg" alt="Natural Hair Services" class="service-image" id="natural-hair-image">
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Locs Retwist & style (wash included)</h3>
+                    </div>
+                    <div class="service-price">$80.00</div>
+                    <button class="btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>Twists (wash included)</h3>
+                    </div>
+                    <div class="service-price">$60.00</div>
+                    <button class="btn" onclick="bookService('Twists - $60')">Select</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Weave Section -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleSection('quick-weave')">
+                <h2>Quick Weave</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="service-content" id="quick-weave">
+                <img src="quick-weave-section.jpg" alt="Quick Weave Services" class="service-image" id="quick-weave-image">
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>14" 16" 18" Body wave / Straight</h3>
+                    </div>
+                    <div class="service-price">$190.00</div>
+                    <button class="btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>20" 22" 24" Body Wave / Straight</h3>
+                    </div>
+                    <div class="service-price">$215.00</div>
+                    <button class="btn" onclick="bookService('20-24" Body wave/Straight - $215')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>26" 28" 30" Body Wave or straight</h3>
+                    </div>
+                    <div class="service-price">$280.00</div>
+                    <button class="btn" onclick="bookService('26-30" Body wave/Straight - $280')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>14" 16" 18" Deep Wave</h3>
+                    </div>
+                    <div class="service-price">$230.00</div>
+                    <button class="btn" onclick="bookService('14-18" Deep Wave - $230')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>20" 22" 24" Deep Wave</h3>
+                    </div>
+                    <div class="service-price">$250.00</div>
+                    <button class="btn" onclick="bookService('20-24" Deep Wave - $250')">Select</button>
+                </div>
+                <div class="service-item">
+                    <div class="service-info">
+                        <h3>26" 28" 30" Deep Wave</h3>
+                    </div>
+                    <div class="service-price">$300.00</div>
+                    <button class="btn" onclick="bookService('26-30" Deep Wave - $300')">Select</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle service sections
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const header = section.parentElement.querySelector('.service-header');
+            const image = document.getElementById(sectionId + '-image');
+            
+            section.classList.toggle('active');
+            header.classList.toggle('active');
+            
+            // Toggle image display
+            if (section.classList.contains('active')) {
+                if (image) image.style.display = 'block';
+            } else {
+                if (image) image.style.display = 'none';
+            }
+        }
+        
+        // Book service function (links to Calendly)
+        function bookService(serviceName) {
+            // Show thank you message
+            document.getElementById('thankYou').style.display = 'block';
+            window.scrollTo(0, 0);
+            
+            // Replace with your actual Calendly link
+            const calendlyLink = 'https://calendly.com/kayleb-sr/30min';
+            
+            // Open Calendly in new tab after 2 seconds
+            setTimeout(() => {
+                window.open(calendlyLink, '_blank');
+            }, 2000);
+            
+            // Store the selected service
+            localStorage.setItem('selectedService', serviceName);
+        }
+        
+        // Initialize - open first section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleSection('acrylic');
+        });
+    </script>
+</body>
+</html>
