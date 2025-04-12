@@ -37,23 +37,42 @@
         .welcome-header {
             text-align: center;
             padding: 60px 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             margin-bottom: 40px;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+            background-image: url('welcome.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .welcome-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(142, 68, 173, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .welcome-header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
         
         .welcome-header p {
             font-size: 1.5rem;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .salon-name {
@@ -61,11 +80,15 @@
             font-weight: bold;
             letter-spacing: 2px;
             margin: 20px 0;
+            position: relative;
+            z-index: 1;
         }
         
         .location {
             font-style: italic;
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         /* Service Section Styles */
@@ -169,9 +192,12 @@
             display: none;
         }
         
-        /* Policy Section */
+        /* Policy Section with Image Background */
         .policy-section {
-            background: white;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('booking-policies.jpeg');
+            background-size: cover;
+            background-position: center;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 30px;
@@ -193,9 +219,12 @@
             margin-bottom: 10px;
         }
         
-        /* Social Media Section */
+        /* Social Media Section with Image Background */
         .social-section {
-            background: white;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('mention-selfies.jpeg');
+            background-size: cover;
+            background-position: center;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 30px;
@@ -215,10 +244,16 @@
             margin-top: 15px;
         }
         
-        /* Thank You Section */
+        /* Thank You Section with Image Background */
         .thank-you-section {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('thank-you.jpeg');
+            background-size: cover;
+            background-position: center;
             text-align: center;
             padding: 60px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
             display: none;
         }
         
@@ -226,6 +261,15 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 20px;
+        }
+        
+        /* Calendly Integration */
+        .calendly-inline-widget {
+            min-height: 700px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+            display: none;
         }
         
         @media (max-width: 768px) {
@@ -245,24 +289,34 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Calendly script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
     <div class="container">
-        <!-- Welcome Header -->
+        <!-- Welcome Header with Image Background -->
         <div class="welcome-header">
-            <h1>Hello Glorious</h1>
-            <p>WELCOME TO OUR WEBSITE</p>
-            <div class="salon-name">Mais Lors & Maleur</div>
-            <div>BY YENIFER</div>
-            <div class="location">LOCATED IN ATLANTA, GEORGIA</div>
+            <div class="welcome-overlay">
+                <h1>Hello Glorious</h1>
+                <p>WELCOME TO OUR WEBSITE</p>
+                <div class="salon-name">Mais Lors & Maleur</div>
+                <div>BY YENIFER</div>
+                <div class="location">LOCATED IN ATLANTA, GEORGIA</div>
+            </div>
         </div>
         
         <!-- Thank You Section (hidden by default) -->
         <div class="thank-you-section" id="thankYou">
             <h2>Thank You</h2>
             <p>FOR CHOOSING US</p>
-            <p>Please select the services from the list below!</p>
+            <p>Your appointment is being booked...</p>
+            <div id="selectedServiceDisplay" style="margin: 20px 0; font-weight: bold;"></div>
         </div>
+        
+        <!-- Calendly Embed -->
+        <div class="calendly-inline-widget" 
+             data-url="https://calendly.com/kayleb-sr/30min" 
+             id="calendlyWidget"></div>
         
         <!-- Policy Section -->
         <div class="policy-section">
@@ -475,7 +529,6 @@
             section.classList.toggle('active');
             header.classList.toggle('active');
             
-            // Toggle image display
             if (section.classList.contains('active')) {
                 if (image) image.style.display = 'block';
             } else {
@@ -483,18 +536,35 @@
             }
         }
         
-        // Book service function (links to Calendly)
+        // Book service function with enhanced Calendly integration
         function bookService(serviceName) {
-            // Show thank you message
+            // Show thank you message with selected service
             document.getElementById('thankYou').style.display = 'block';
+            document.getElementById('selectedServiceDisplay').textContent = "Service: " + serviceName;
             window.scrollTo(0, 0);
             
-            // Replace with your actual Calendly link
-            const calendlyLink = 'https://calendly.com/kayleb-sr/30min';
-            
-            // Open Calendly in new tab after 2 seconds
+            // Show Calendly widget after 2 seconds
             setTimeout(() => {
-                window.open(calendlyLink, '_blank');
+                document.getElementById('thankYou').style.display = 'none';
+                document.querySelector('.calendly-inline-widget').style.display = 'block';
+                
+                // Initialize Calendly widget
+                Calendly.initInlineWidget({
+                    url: 'https://calendly.com/kayleb-sr/30min',
+                    parentElement: document.querySelector('.calendly-inline-widget'),
+                    prefill: {
+                        name: '',
+                        email: '',
+                        customAnswers: {
+                            a1: serviceName // Pass service name to Calendly
+                        }
+                    }
+                });
+                
+                // Scroll to Calendly widget
+                document.querySelector('.calendly-inline-widget').scrollIntoView({
+                    behavior: 'smooth'
+                });
             }, 2000);
             
             // Store the selected service
@@ -504,7 +574,21 @@
         // Initialize - open first section by default
         document.addEventListener('DOMContentLoaded', function() {
             toggleSection('acrylic');
+            
+            // Check if returning from Calendly
+            if (localStorage.getItem('bookingComplete')) {
+                document.getElementById('thankYou').style.display = 'block';
+                document.getElementById('selectedServiceDisplay').textContent = 
+                    "Thank you for booking: " + localStorage.getItem('selectedService');
+                localStorage.removeItem('bookingComplete');
+            }
         });
+        
+        // This would be triggered when returning from Calendly (you'd need to implement this)
+        function onBookingComplete() {
+            localStorage.setItem('bookingComplete', 'true');
+            window.location.reload();
+        }
     </script>
 </body>
 </html>
