@@ -192,95 +192,160 @@
         padding: 100px 20px 80px;
     }
     
-    section {
-        margin-bottom: 60px;
-    }
-    
-    .welcome-section, .policies-section, .social-section, .thankyou-section {
-        background: var(--white);
-        padding: 50px;
+    /* Creative Layout Sections */
+    .welcome-section {
+        background: linear-gradient(135deg, var(--soft-pink) 0%, var(--white) 100%);
+        padding: 80px 50px;
         margin: 30px auto;
-        max-width: 800px;
         border-radius: 15px;
         box-shadow: 0 5px 25px rgba(0,0,0,0.05);
         text-align: center;
+        position: relative;
+        overflow: hidden;
     }
     
-    .welcome-section h1, .policies-section h1, .social-section h1, .thankyou-section h1 {
+    .welcome-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: var(--pink);
+        opacity: 0.1;
+        border-radius: 50%;
+    }
+    
+    .welcome-section::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        width: 150px;
+        height: 150px;
+        background: var(--dark-pink);
+        opacity: 0.1;
+        border-radius: 50%;
+    }
+    
+    .welcome-section h1 {
         color: var(--dark-pink);
-        font-size: 2.5rem;
-        margin-bottom: 20px;
+        font-size: 2.8rem;
+        margin-bottom: 15px;
         font-family: 'Playfair Display', serif;
+        position: relative;
+        z-index: 1;
     }
     
-    .welcome-section h2, .policies-section h2, .social-section h2, .thankyou-section h2 {
+    .welcome-section h2 {
         color: var(--pink);
         font-size: 1.8rem;
         margin-bottom: 30px;
         font-weight: 400;
-    }
-    
-    .welcome-section p, .policies-section p, .social-section p, .thankyou-section p {
-        color: var(--text-medium);
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
     }
     
     .welcome-section .brand-name {
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: var(--dark-pink);
         line-height: 1;
         margin: 20px 0;
         font-family: 'Playfair Display', serif;
+        position: relative;
+        z-index: 1;
     }
     
     .welcome-section .location {
         color: var(--pink);
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-top: 20px;
+        position: relative;
+        z-index: 1;
     }
     
-    .policies-section h3 {
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 60px auto;
+    }
+    
+    .info-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .info-card.policies {
+        background: linear-gradient(135deg, var(--white) 0%, var(--light-cream) 100%);
+    }
+    
+    .info-card.social {
+        background: linear-gradient(135deg, var(--light-cream) 0%, var(--white) 100%);
+    }
+    
+    .info-card h3 {
         color: var(--dark-pink);
-        margin: 30px 0 15px;
-        font-size: 1.5rem;
+        margin: 0 0 20px;
+        font-size: 1.8rem;
         font-family: 'Playfair Display', serif;
     }
     
-    .policies-section ul {
-        text-align: left;
-        max-width: 600px;
-        margin: 0 auto;
+    .info-card h4 {
+        color: var(--pink);
+        margin: 25px 0 15px;
+        font-size: 1.3rem;
+        font-weight: 500;
     }
     
-    .policies-section li {
+    .info-card p {
         color: var(--text-medium);
-        margin-bottom: 10px;
-        list-style-type: none;
-        position: relative;
+        margin-bottom: 15px;
+    }
+    
+    .info-card ul {
         padding-left: 20px;
     }
     
-    .policies-section li:before {
+    .info-card li {
+        color: var(--text-medium);
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    .info-card li:before {
         content: "•";
         color: var(--pink);
         position: absolute;
-        left: 0;
+        left: -15px;
     }
     
-    .social-section .social-handle {
+    .social-handle {
         color: var(--dark-pink);
         font-size: 1.5rem;
-        margin-top: 30px;
+        margin-top: 20px;
         font-weight: bold;
+        display: inline-block;
+        padding: 8px 15px;
+        background: var(--soft-pink);
+        border-radius: 20px;
     }
     
     .services-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
+        margin: 60px auto;
     }
     
     .service-card {
@@ -291,6 +356,7 @@
         transition: all 0.3s ease;
         text-align: center;
         padding: 30px;
+        position: relative;
     }
     
     .service-card:hover {
@@ -364,6 +430,50 @@
         background: var(--dark-pink);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(232, 160, 183, 0.3);
+    }
+    
+    .thankyou-section {
+        background: linear-gradient(135deg, var(--white) 0%, var(--soft-pink) 100%);
+        padding: 60px;
+        margin: 60px auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .thankyou-section::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 100px;
+        height: 100px;
+        background: var(--pink);
+        opacity: 0.1;
+        border-radius: 50%;
+    }
+    
+    .thankyou-section h1 {
+        color: var(--dark-pink);
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .thankyou-section h2 {
+        color: var(--pink);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+    
+    .thankyou-section p {
+        color: var(--text-medium);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 20px;
     }
     
     .btn {
@@ -539,24 +649,36 @@
             display: none;
         }
         
-        .welcome-section, .policies-section, .social-section, .thankyou-section {
-            padding: 30px 20px;
+        .welcome-section {
+            padding: 50px 20px;
         }
         
-        .welcome-section h1, .policies-section h1, .social-section h1, .thankyou-section h1 {
-            font-size: 2rem;
+        .welcome-section h1 {
+            font-size: 2.2rem;
         }
         
-        .welcome-section h2, .policies-section h2, .social-section h2, .thankyou-section h2 {
+        .welcome-section h2 {
             font-size: 1.5rem;
+        }
+        
+        .welcome-section .brand-name {
+            font-size: 2.8rem;
+        }
+        
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .info-card {
+            padding: 30px;
         }
         
         .services-container {
             grid-template-columns: 1fr;
         }
         
-        .service-card {
-            padding: 25px;
+        .thankyou-section {
+            padding: 40px 20px;
         }
     }
     </style>
@@ -598,33 +720,10 @@
     <div class="container">
         <!-- Welcome Section -->
         <section class="welcome-section">
-            <h2>Hello Glorious</h2>
             <h1>WELCOME TO OUR WEBSITE</h1>
+            <h2>Hello Glorious</h2>
             <div class="brand-name">Mais<br>Lors &<br>Maleur</div>
             <p class="location">BY YENIFER<br>LOCATED IN ATLANTA GEORGIA</p>
-        </section>
-
-        <!-- Booking Policies Section -->
-        <section class="policies-section">
-            <h1>Booking POLICIES</h1>
-            
-            <h3>CANCELLATION & RESCHEDULING</h3>
-            <p>A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
-            
-            <h3>DEPOSITS</h3>
-            <p>I ACCEPT CASH and CASHAPP ALL OTHER FORMS OF PAYMENT WILL NOT Be accepted</p>
-            
-            <h3>LATE POLICY</h3>
-            <p>PLEASE ARRIVE ON TIME!</p>
-            <p>A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT can BE CANCELLED and your deposit will not be refunded.</p>
-        </section>
-
-        <!-- Social Media Section -->
-        <section class="social-section">
-            <h1>Share us in your SELFIES</h1>
-            <p>I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
-            <p>(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
-            <div class="social-handle">@1YENFFER6</div>
         </section>
 
         <!-- Services Section -->
@@ -689,11 +788,40 @@
             </div>
         </section>
 
+        <!-- Info Grid Section -->
+        <div class="info-grid">
+            <div class="info-card policies">
+                <h3>Booking Policies</h3>
+                
+                <h4>CANCELLATION & RESCHEDULING</h4>
+                <p>A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
+                
+                <h4>DEPOSITS</h4>
+                <p>I ACCEPT CASH and CASHAPP ALL OTHER FORMS OF PAYMENT WILL NOT Be accepted</p>
+                
+                <h4>LATE POLICY</h4>
+                <p>PLEASE ARRIVE ON TIME!</p>
+                <p>A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT can BE CANCELLED and your deposit will not be refunded.</p>
+            </div>
+            
+            <div class="info-card social">
+                <h3>Share Us</h3>
+                <p>I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA.</p>
+                
+                <h4>Tag Us!</h4>
+                <p>PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
+                <p>(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
+                
+                <div class="social-handle">@1YENFFER6</div>
+            </div>
+        </div>
+
         <!-- Thank You Section -->
         <section class="thankyou-section">
             <h1>Thank you</h1>
             <h2>FOR CHOOSING US</h2>
             <p>Please select the services from the list above!</p>
+            <button class="btn" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">View Services</button>
         </section>
 
         <!-- Calendly Embed -->
