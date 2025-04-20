@@ -157,41 +157,81 @@
         text-transform: none;
     }
     
-    .hero {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        min-height: 700px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .hero-content {
+    .welcome-section, .policies-section, .social-section, .thankyou-section {
+        background: rgba(255,255,255,0.05);
+        padding: 40px;
+        margin: 30px auto;
         max-width: 800px;
-        padding: 0 20px;
-        position: relative;
-        z-index: 2;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
     }
     
-    .hero-content h1 {
-        font-size: 4rem;
+    .welcome-section h1, .policies-section h1, .social-section h1, .thankyou-section h1 {
+        color: var(--gold);
+        font-size: 2.5rem;
         margin-bottom: 20px;
-        line-height: 1.2;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        animation: fadeInUp 1s ease;
     }
     
-    .hero-content p {
-        font-size: 1.2rem;
+    .welcome-section h2, .policies-section h2, .social-section h2, .thankyou-section h2 {
+        color: var(--light-pink);
+        font-size: 1.8rem;
         margin-bottom: 30px;
-        animation: fadeInUp 1s ease 0.3s forwards;
-        opacity: 0;
+    }
+    
+    .welcome-section p, .policies-section p, .social-section p, .thankyou-section p {
+        color: var(--light-grey);
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .welcome-section .brand-name {
+        font-size: 3rem;
+        color: var(--gold);
+        line-height: 1;
+        margin: 20px 0;
+    }
+    
+    .welcome-section .location {
+        color: var(--light-pink);
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+    
+    .policies-section h3 {
+        color: var(--gold);
+        margin: 30px 0 15px;
+        font-size: 1.5rem;
+    }
+    
+    .policies-section ul {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .policies-section li {
+        color: var(--light-grey);
+        margin-bottom: 10px;
+        list-style-type: none;
+        position: relative;
+        padding-left: 20px;
+    }
+    
+    .policies-section li:before {
+        content: "•";
+        color: var(--gold);
+        position: absolute;
+        left: 0;
+    }
+    
+    .social-section .social-handle {
+        color: var(--gold);
+        font-size: 1.5rem;
+        margin-top: 30px;
+        font-weight: bold;
     }
     
     .btn {
@@ -209,8 +249,6 @@
         box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         border: none;
         cursor: pointer;
-        animation: fadeInUp 1s ease 0.6s forwards;
-        opacity: 0;
         position: relative;
         overflow: hidden;
     }
@@ -224,314 +262,138 @@
         transform: translateY(1px);
     }
     
-    .btn-secondary {
-        background: transparent;
-        color: white;
-        border: 2px solid var(--gold);
-        margin-left: 15px;
-    }
-    
-    .btn-secondary:hover {
-        background: var(--gold);
-        color: var(--black);
-    }
-    
-    .floating-elements {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-    }
-    
-    .floating-element {
-        position: absolute;
-        background: rgba(212, 175, 55, 0.1);
-        border-radius: 50%;
-        animation: float 15s infinite linear;
-    }
-    
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 80px 20px;
+        padding: 100px 20px 80px;
     }
     
-    section {
-        margin-bottom: 80px;
-        position: relative;
-    }
-    
-    .section-title {
-        text-align: center;
-        margin-bottom: 60px;
-        position: relative;
-    }
-    
-    .section-title h2 {
-        font-size: 2.5rem;
-        color: var(--gold);
-        margin-bottom: 20px;
-        position: relative;
-        display: inline-block;
-    }
-    
-    .section-title h2:after {
-        content: '';
-        position: absolute;
-        width: 50%;
-        height: 3px;
-        background: var(--light-pink);
-        bottom: -10px;
-        left: 25%;
-        border-radius: 3px;
-    }
-    
-    .section-title p {
-        color: var(--light-grey);
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 30px;
-    }
-    
-    .service-card {
+    .service-section {
         background: rgba(255,255,255,0.05);
         border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin: 30px auto;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        transition: all 0.4s;
+        max-width: 800px;
         backdrop-filter: blur(5px);
         border: 1px solid rgba(255,255,255,0.1);
-        position: relative;
     }
     
-    .service-card:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--pink-gold-gradient);
-        opacity: 0;
-        transition: opacity 0.3s;
-        z-index: -1;
+    .service-header {
+        background-color: transparent;
+        color: var(--gold);
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        border-color: rgba(212, 175, 55, 0.3);
+    .service-header h2 {
+        font-size: 1.5rem;
+        margin: 0;
     }
     
-    .service-card:hover:before {
-        opacity: 0.1;
+    .service-header i {
+        transition: transform 0.3s ease;
+        color: var(--gold);
     }
     
-    .service-card:hover .service-content {
-        background: rgba(0,0,0,0.7);
-    }
-    
-    .service-card:hover .btn-book-service {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .service-image {
-        height: 200px;
-        background-size: cover;
-        background-position: center;
+    .service-header.active i {
+        transform: rotate(180deg);
     }
     
     .service-content {
-        padding: 25px;
-        transition: all 0.3s;
-        position: relative;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
     
-    .service-title {
-        font-size: 1.4rem;
-        margin: 0 0 15px;
-        color: var(--gold);
-        font-weight: 600;
+    .service-content.active {
+        max-height: 2000px;
     }
     
-    .service-description {
-        color: var(--light-grey);
-        margin-bottom: 20px;
-        font-size: 0.95rem;
-    }
-    
-    .service-meta {
+    .service-item {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
+        align-items: center;
     }
     
-    .service-duration, .service-price {
-        display: flex;
-        align-items: center;
+    .service-item:last-child {
+        border-bottom: none;
+    }
+    
+    .service-info {
+        flex: 1;
+    }
+    
+    .service-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
         color: var(--light-grey);
+    }
+    
+    .service-info p {
+        color: var(--medium-grey);
         font-size: 0.9rem;
     }
     
     .service-price {
         font-weight: bold;
+        font-size: 1.2rem;
         color: var(--gold);
-        font-size: 1.1rem;
+        margin: 0 15px;
+        white-space: nowrap;
     }
     
-    .btn-book-service {
-        display: block;
-        width: 100%;
+    .service-btn {
         background: var(--pink-gold-gradient);
         color: var(--black);
-        padding: 12px;
-        text-align: center;
+        border: none;
+        padding: 10px 20px;
         border-radius: 5px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s;
-        opacity: 0;
-        transform: translateY(10px);
-        position: absolute;
-        bottom: -20px;
-        left: 25px;
-        right: 25px;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
     }
     
-    .btn-book-service:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    .service-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
     }
     
-    .policies-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-    }
-    
-    .policy-card {
-        background: rgba(255,255,255,0.05);
-        padding: 30px;
+    .calendly-inline-widget {
+        min-height: 600px;
+        width: 100%;
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        transition: all 0.3s;
+        overflow: hidden;
+        margin: 40px auto;
+        display: none;
+        max-width: 800px;
+        background: rgba(255,255,255,0.05);
         backdrop-filter: blur(5px);
         border: 1px solid rgba(255,255,255,0.1);
     }
     
-    .policy-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        border-color: rgba(212, 175, 55, 0.3);
-    }
-    
-    .policy-card h3 {
-        color: var(--gold);
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.3rem;
-        position: relative;
-        padding-bottom: 10px;
-    }
-    
-    .policy-card h3:after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 2px;
-        background: var(--light-pink);
-        bottom: 0;
-        left: 0;
-    }
-    
-    .policy-card p, .policy-card li {
-        color: var(--light-grey);
-        font-size: 0.95rem;
-    }
-    
-    .policy-card ul {
-        padding-left: 20px;
-    }
-    
-    .policy-card li {
-        margin-bottom: 8px;
-    }
-    
-    .info-section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-    
-    .info-card {
-        background: rgba(255,255,255,0.05);
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        transition: all 0.3s;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255,255,255,0.1);
-        text-align: center;
-    }
-    
-    .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        border-color: rgba(212, 175, 55, 0.3);
-    }
-    
-    .info-card i {
-        font-size: 2.5rem;
-        color: var(--gold);
-        margin-bottom: 20px;
-    }
-    
-    .info-card h3 {
-        color: var(--gold);
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.3rem;
-    }
-    
-    .info-card p {
-        color: var(--light-grey);
-        font-size: 0.95rem;
-    }
-    
-    .booking-section {
-        background: rgba(255,255,255,0.05);
-        padding: 50px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .booking-container {
-        text-align: center;
-    }
-    
-    .booking-container h2 {
-        color: var(--gold);
-        margin-bottom: 30px;
-    }
-    
-    .booking-container p {
-        color: var(--light-grey);
-        margin-bottom: 30px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: var(--pink-gold-gradient);
+        color: var(--black);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
     footer {
@@ -614,11 +476,6 @@
         font-size: 0.8rem;
     }
     
-    .copyright a {
-        color: var(--gold);
-        text-decoration: none;
-    }
-    
     .back-to-top {
         position: fixed;
         bottom: 30px;
@@ -650,205 +507,109 @@
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
     }
     
-    /* Custom styles for your existing content */
-    .image-stack {
-        max-width: 800px;
-        margin: 20px auto;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .image-container {
-        background: rgba(255,255,255,0.05);
-        padding: 20px 0;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .image-container img {
-        max-width: 90%;
-        margin: 0 auto;
-        display: block;
-        border-radius: 5px;
-    }
-    
-    .service-section {
-        background: rgba(255,255,255,0.05);
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin: 20px auto;
-        overflow: hidden;
-        max-width: 800px;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .service-header {
-        background-color: transparent;
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+        display: none;
+        background: none;
+        border: none;
         color: var(--gold);
-        padding: 15px 20px;
+        font-size: 1.8rem;
         cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        z-index: 1001;
     }
     
-    .service-header h2 {
-        font-size: 1.3rem;
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        padding: 80px 20px 20px;
+        overflow-y: auto;
+    }
+    
+    .mobile-nav.active {
+        right: 0;
+    }
+    
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
         margin: 0;
     }
     
-    .service-header i {
-        transition: transform 0.3s ease;
-        color: var(--gold);
+    .mobile-nav li {
+        margin-bottom: 15px;
     }
     
-    .service-header.active i {
-        transform: rotate(180deg);
-    }
-    
-    .service-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-    
-    .service-content.active {
-        max-height: 2000px;
-    }
-    
-    .service-item {
-        padding: 15px;
+    .mobile-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px;
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
     
-    .service-item:last-child {
-        border-bottom: none;
-    }
-    
-    .service-info {
-        flex: 1;
-    }
-    
-    .service-info h3 {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-        color: var(--light-grey);
-    }
-    
-    .service-info p {
-        color: var(--medium-grey);
-        font-size: 0.85rem;
-    }
-    
-    .service-price {
-        font-weight: bold;
-        font-size: 1.1rem;
+    .mobile-nav a:hover {
         color: var(--gold);
-        margin: 0 15px;
-        white-space: nowrap;
     }
     
-    .btn {
-        background: var(--pink-gold-gradient);
-        color: var(--black);
-        border: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-    }
-    
-    .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-    }
-    
-    .service-image {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        display: none;
-    }
-    
-    .calendly-inline-widget {
-        min-height: 600px;
-        width: 100%;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 20px auto;
-        display: none;
-        max-width: 800px;
-        background: rgba(255,255,255,0.05);
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .back-btn {
+    .mobile-nav-overlay {
         position: fixed;
-        top: 20px;
-        left: 20px;
-        background: var(--pink-gold-gradient);
-        color: var(--black);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
     }
     
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes float {
-        0% {
-            transform: translateY(0) rotate(0deg);
-        }
-        50% {
-            transform: translateY(-20px) rotate(180deg);
-        }
-        100% {
-            transform: translateY(0) rotate(360deg);
-        }
+    .mobile-nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
     
     @media (max-width: 768px) {
-        .header-container {
+        .mobile-nav-toggle {
+            display: block;
+        }
+        
+        nav.desktop-nav {
+            display: none;
+        }
+        
+        .welcome-section, .policies-section, .social-section, .thankyou-section {
+            padding: 30px 20px;
+        }
+        
+        .welcome-section h1, .policies-section h1, .social-section h1, .thankyou-section h1 {
+            font-size: 2rem;
+        }
+        
+        .welcome-section h2, .policies-section h2, .social-section h2, .thankyou-section h2 {
+            font-size: 1.5rem;
+        }
+        
+        .service-header {
+            padding: 15px;
+        }
+        
+        .service-item {
             flex-direction: column;
-            text-align: center;
+            align-items: flex-start;
         }
         
-        nav ul {
-            margin-top: 1rem;
-            flex-direction: column;
-        }
-        
-        nav ul li {
-            margin: 0.5rem 0;
-        }
-        
-        .footer-content {
-            grid-template-columns: 1fr;
+        .service-price {
+            margin: 10px 0;
         }
     }
     </style>
@@ -860,7 +621,10 @@
     <header>
         <div class="header-container">
             <div class="logo">Mais Lors <span>& Maleur</span></div>
-            <nav>
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#booking">Book Now</a></li>
@@ -870,26 +634,51 @@
         </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#services" onclick="closeMobileNav()">Services</a></li>
+            <li><a href="#booking" onclick="closeMobileNav()">Book Now</a></li>
+            <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+        </ul>
+    </nav>
+
     <a href="#" class="back-btn" onclick="history.back()">
         <i class="fas fa-arrow-left"></i>
     </a>
 
     <div class="container">
-        <!-- Image Stack -->
-        <div class="image-stack">
-            <div class="image-container">
-                <img src="welcome.jpeg" alt="Welcome">
-            </div>
-            <div class="image-container">
-                <img src="booking-policies.jpeg" alt="Booking Policies">
-            </div>
-            <div class="image-container">
-                <img src="mention-selfies.jpeg" alt="Social Media">
-            </div>
-            <div class="image-container">
-                <img src="thank-you.jpeg" alt="Thank You">
-            </div>
-        </div>
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2>Hello Glorious</h2>
+            <h1>WELCOME TO OUR WEBSITE</h1>
+            <div class="brand-name">Mais<br>Lors &<br>Maleur</div>
+            <p class="location">BY YENIFER<br>LOCATED IN ATLANTA GEORGIA</p>
+        </section>
+
+        <!-- Booking Policies Section -->
+        <section class="policies-section">
+            <h1>Booking POLICIES</h1>
+            
+            <h3>CANCELLATION & RESCHEDULING</h3>
+            <p>A 24-HOUR NOTICE IS REQUIRED PRIOR TO CANCELLATION OR RESCHEDULING OF AN APPOINTMENT.</p>
+            
+            <h3>DEPOSITS</h3>
+            <p>I ACCEPT CASH and CASHAPP ALL OTHER FORMS OF PAYMENT WILL NOT Be accepted</p>
+            
+            <h3>LATE POLICY</h3>
+            <p>PLEASE ARRIVE ON TIME!</p>
+            <p>A 20 MINUTE GRACE PERIOD WILL BE GIVEN BUT AFTER THIS YOUR APPOINTMENT can BE CANCELLED and your deposit will not be refunded.</p>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-section">
+            <h1>Share us in your SELFIES</h1>
+            <p>I CAPTURE PHOTOS AND RECORD VIDEOS OF ALL MY CLIENTS, AND I SHARE THEM ON SOCIAL MEDIA. PLEASE MAKE SURE TO ADD TAGS TO THE PHOTOS AND REELS!</p>
+            <p>(IF YOU PREFER NOT TO BE FEATURED IN POSTS, KINDLY INFORM ME. THANK YOU!)</p>
+            <div class="social-handle">@1YENFFER6</div>
+        </section>
 
         <!-- Services Section -->
         <div id="services">
@@ -899,14 +688,13 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="service-content" id="acrylic">
-                    <img src="acrylic-section.jpg" alt="Acrylic Nails" class="service-image" id="acrylic-image">
                     <div class="service-item">
                         <div class="service-info">
                             <h3>Medium acrylic set</h3>
                             <p>Price includes 1-2 design on each hand add on a design package if design includes 3 fingers on each hand or more</p>
                         </div>
                         <div class="service-price">$65.00</div>
-                        <button class="btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
+                        <button class="service-btn" onclick="bookService('Medium acrylic set - $65')">Select</button>
                     </div>
                 </div>
             </div>
@@ -917,13 +705,12 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="service-content" id="makeup">
-                    <img src="makeup-section.jpg" alt="Make Up Services" class="service-image" id="makeup-image">
                     <div class="service-item">
                         <div class="service-info">
                             <h3>Soft glam with Yenifer Torres</h3>
                         </div>
                         <div class="service-price">$90.00</div>
-                        <button class="btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Select</button>
+                        <button class="service-btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Select</button>
                     </div>
                 </div>
             </div>
@@ -934,13 +721,12 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="service-content" id="natural-hair">
-                    <img src="natural-hair-section.jpg" alt="Natural Hair Services" class="service-image" id="natural-hair-image">
                     <div class="service-item">
                         <div class="service-info">
                             <h3>Locs Retwist & style (wash included)</h3>
                         </div>
                         <div class="service-price">$80.00</div>
-                        <button class="btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
+                        <button class="service-btn" onclick="bookService('Locs Retwist & style - $80')">Select</button>
                     </div>
                 </div>
             </div>
@@ -951,17 +737,23 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="service-content" id="quick-weave">
-                    <img src="quick-weave-section.jpg" alt="Quick Weave Services" class="service-image" id="quick-weave-image">
                     <div class="service-item">
                         <div class="service-info">
                             <h3>14" 16" 18" Body wave / Straight</h3>
                         </div>
                         <div class="service-price">$190.00</div>
-                        <button class="btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
+                        <button class="service-btn" onclick="bookService('14-18" Body wave/Straight - $190')">Select</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Thank You Section -->
+        <section class="thankyou-section">
+            <h1>Thank you</h1>
+            <h2>FOR CHOOSING US</h2>
+            <p>Please select the services from the list above!</p>
+        </section>
 
         <!-- Calendly Embed -->
         <div class="calendly-inline-widget" id="booking"
@@ -1000,21 +792,36 @@
         </div>
     </footer>
 
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
+        }
+        
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+        }
+        
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        mobileNavOverlay.addEventListener('click', closeMobileNav);
+        
         // Toggle service sections
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             const header = section.parentElement.querySelector('.service-header');
-            const image = document.getElementById(sectionId + '-image');
             
             section.classList.toggle('active');
             header.classList.toggle('active');
-            
-            if (section.classList.contains('active')) {
-                if (image) image.style.display = 'block';
-            } else {
-                if (image) image.style.display = 'none';
-            }
         }
         
         // Book service function
@@ -1065,25 +872,18 @@
         });
         
         // Back to top button
-        const backToTopButton = document.createElement('div');
-        backToTopButton.className = 'back-to-top';
-        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        backToTopButton.onclick = function() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        };
-        document.body.appendChild(backToTopButton);
+        const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
+                backToTop.classList.add('visible');
             } else {
-                backToTopButton.classList.remove('visible');
+                backToTop.classList.remove('visible');
             }
         });
         
-        // Initialize - no sections open by default
-        document.addEventListener('DOMContentLoaded', function() {
-            // Your original booking functionality is preserved
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
         });
     </script>
 </body>
