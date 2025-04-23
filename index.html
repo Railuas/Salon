@@ -8,15 +8,15 @@
     <style>
     :root {
         --white: #ffffff;
-        --light-cream: #fff9f5;
-        --soft-pink: #ffdfea;
-        --pink: #ffb6c1;
-        --dark-pink: #e8a0b7;
-        --light-grey: #f5f5f5;
-        --medium-grey: #e0e0e0;
-        --text-dark: #333333;
-        --text-medium: #666666;
-        --text-light: #888888;
+        --light-cream: #1a1a1a;
+        --soft-pink: #ff6b9e;
+        --pink: #ff4d87;
+        --dark-pink: #e83e8c;
+        --light-grey: #333333;
+        --medium-grey: #444444;
+        --text-dark: #f0f0f0;
+        --text-medium: #cccccc;
+        --text-light: #aaaaaa;
     }
     
     * {
@@ -30,26 +30,26 @@
         margin: 0;
         padding: 0;
         color: var(--text-dark);
-        background-color: var(--light-cream);
+        background-color: #000000;
         line-height: 1.7;
         overflow-x: hidden;
     }
     
     header {
-        background-color: var(--white);
+        background-color: #111111;
         color: var(--text-dark);
         padding: 15px 0;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 15px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
     }
     
     header.scrolled {
         padding: 10px 0;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     
     .header-container {
@@ -133,12 +133,12 @@
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background: var(--white);
+        background: #111111;
         z-index: 1000;
         transition: right 0.3s ease;
         padding: 80px 20px 20px;
         overflow-y: auto;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
     }
     
     .mobile-nav.active {
@@ -174,7 +174,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0,0,0,0.7);
         z-index: 999;
         opacity: 0;
         visibility: hidden;
@@ -194,14 +194,15 @@
     
     /* Creative Layout Sections */
     .welcome-section {
-        background: linear-gradient(135deg, var(--soft-pink) 0%, var(--white) 100%);
+        background: linear-gradient(135deg, #222222 0%, #111111 100%);
         padding: 80px 50px;
         margin: 30px auto;
         border-radius: 15px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         text-align: center;
         position: relative;
         overflow: hidden;
+        border: 1px solid var(--medium-grey);
     }
     
     .welcome-section::before {
@@ -272,27 +273,28 @@
     }
     
     .info-card {
-        background: var(--white);
+        background: #111111;
         padding: 40px;
         border-radius: 15px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        border: 1px solid var(--medium-grey);
     }
     
     .info-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
     
     .info-card.policies {
-        background: linear-gradient(135deg, var(--white) 0%, var(--light-cream) 100%);
+        background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
         border-left: 5px solid var(--dark-pink);
     }
     
     .info-card.social {
-        background: linear-gradient(135deg, var(--light-cream) 0%, var(--white) 100%);
+        background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
         border-left: 5px solid var(--pink);
     }
     
@@ -367,7 +369,7 @@
         font-weight: bold;
         display: inline-block;
         padding: 12px 20px;
-        background: var(--soft-pink);
+        background: rgba(255, 107, 158, 0.2);
         border-radius: 30px;
         transition: all 0.3s;
         text-decoration: none;
@@ -399,7 +401,7 @@
         justify-content: center;
         width: 50px;
         height: 50px;
-        background: var(--soft-pink);
+        background: rgba(255, 107, 158, 0.2);
         border-radius: 50%;
         color: var(--dark-pink);
         font-size: 1.5rem;
@@ -421,19 +423,20 @@
     }
     
     .service-card {
-        background: var(--white);
+        background: #111111;
         border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
         text-align: center;
         padding: 30px;
         position: relative;
+        border: 1px solid var(--medium-grey);
     }
     
     .service-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
     
     .service-icon {
@@ -505,14 +508,15 @@
     }
     
     .thankyou-section {
-        background: linear-gradient(135deg, var(--white) 0%, var(--soft-pink) 100%);
+        background: linear-gradient(135deg, #111111 0%, #222222 100%);
         padding: 60px;
         margin: 60px auto;
         border-radius: 15px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         text-align: center;
         position: relative;
         overflow: hidden;
+        border: 1px solid var(--medium-grey);
     }
     
     .thankyou-section::before {
@@ -578,8 +582,8 @@
         margin: 40px auto;
         display: none;
         max-width: 800px;
-        background: var(--white);
-        box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        background: #111111;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     }
     
     .back-btn {
@@ -595,15 +599,15 @@
         justify-content: center;
         align-items: center;
         z-index: 100;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
     
     footer {
-        background-color: var(--white);
+        background-color: #111111;
         color: var(--text-dark);
         padding: 60px 0 30px;
         position: relative;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
     }
     
     .footer-content {
@@ -659,7 +663,7 @@
         justify-content: center;
         width: 40px;
         height: 40px;
-        background: var(--soft-pink);
+        background: rgba(255, 107, 158, 0.2);
         border-radius: 50%;
         color: var(--dark-pink);
         transition: all 0.3s;
@@ -862,6 +866,57 @@
         <!-- Services Section -->
         <section id="services">
             <div class="services-container">
+                <!-- Quick Weaves -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h2>Quick Weaves</h2>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>14" 16" 18" Body wave / Straight</h3>
+                        </div>
+                        <div class="service-price">$190.00</div>
+                        <button class="service-btn" onclick="bookService('14-18" Body wave/Straight - $190')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>20" 22" 24" Body Wave / Straight</h3>
+                        </div>
+                        <div class="service-price">$215.00</div>
+                        <button class="service-btn" onclick="bookService('20-24" Body wave/Straight - $215')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>26" 28" 30" Body Wave or straight</h3>
+                        </div>
+                        <div class="service-price">$280.00</div>
+                        <button class="service-btn" onclick="bookService('26-30" Body wave/Straight - $280')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>14" 16" 18" Deep Wave</h3>
+                        </div>
+                        <div class="service-price">$230.00</div>
+                        <button class="service-btn" onclick="bookService('14-18" Deep Wave - $230')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>20" 22" 24" Deep Wave</h3>
+                        </div>
+                        <div class="service-price">$250.00</div>
+                        <button class="service-btn" onclick="bookService('20-24" Deep Wave - $250')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>26" 28" 30" Deep Wave</h3>
+                        </div>
+                        <div class="service-price">$300.00</div>
+                        <button class="service-btn" onclick="bookService('26-30" Deep Wave - $300')">Book Now</button>
+                    </div>
+                </div>
+                
+                <!-- Acrylic Nails -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hand-sparkles"></i>
@@ -870,27 +925,69 @@
                     <div class="service-item">
                         <div class="service-info">
                             <h3>Medium acrylic set</h3>
-                            <p>Price includes 1-2 design on each hand</p>
                         </div>
                         <div class="service-price">$65.00</div>
                         <button class="service-btn" onclick="bookService('Medium acrylic set - $65')">Book Now</button>
                     </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h2>Make Up</h2>
                     <div class="service-item">
                         <div class="service-info">
-                            <h3>Soft glam with Yenifer Torres</h3>
+                            <h3>Long acrylic set</h3>
+                        </div>
+                        <div class="service-price">$70.00</div>
+                        <button class="service-btn" onclick="bookService('Long acrylic set - $70')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>XL acrylic set</h3>
                         </div>
                         <div class="service-price">$90.00</div>
-                        <button class="service-btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Book Now</button>
+                        <button class="service-btn" onclick="bookService('XL acrylic set - $90')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>XXL acrylic set</h3>
+                        </div>
+                        <div class="service-price">$100.00</div>
+                        <button class="service-btn" onclick="bookService('XXL acrylic set - $100')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Soak off</h3>
+                        </div>
+                        <div class="service-price">$25.00</div>
+                        <button class="service-btn" onclick="bookService('Soak off - $25')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Acrylic big toes</h3>
+                        </div>
+                        <div class="service-price">$30.00</div>
+                        <button class="service-btn" onclick="bookService('Acrylic big toes - $30')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Acrylic on all toes</h3>
+                        </div>
+                        <div class="service-price">$40.00</div>
+                        <button class="service-btn" onclick="bookService('Acrylic on all toes - $40')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Refill</h3>
+                        </div>
+                        <div class="service-price">$50.00</div>
+                        <button class="service-btn" onclick="bookService('Refill - $50')">Book Now</button>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Short acrylic full set</h3>
+                        </div>
+                        <div class="service-price">$60.00</div>
+                        <button class="service-btn" onclick="bookService('Short acrylic full set - $60')">Book Now</button>
                     </div>
                 </div>
                 
+                <!-- Natural Hair -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-spa"></i>
@@ -903,19 +1000,27 @@
                         <div class="service-price">$80.00</div>
                         <button class="service-btn" onclick="bookService('Locs Retwist & style - $80')">Book Now</button>
                     </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h2>Quick Weave</h2>
                     <div class="service-item">
                         <div class="service-info">
-                            <h3>14" 16" 18" Body wave / Straight</h3>
+                            <h3>Twists (wash included)</h3>
                         </div>
-                        <div class="service-price">$190.00</div>
-                        <button class="service-btn" onclick="bookService('14-18" Body wave/Straight - $190')">Book Now</button>
+                        <div class="service-price">$60.00</div>
+                        <button class="service-btn" onclick="bookService('Twists - $60')">Book Now</button>
+                    </div>
+                </div>
+                
+                <!-- Make Up -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2>Make Up</h2>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h3>Soft glam with Yenifer Torres</h3>
+                        </div>
+                        <div class="service-price">$90.00</div>
+                        <button class="service-btn" onclick="bookService('Soft glam with Yenifer Torres - $90')">Book Now</button>
                     </div>
                 </div>
             </div>
